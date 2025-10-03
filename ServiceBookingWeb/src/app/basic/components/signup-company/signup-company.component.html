@@ -1,0 +1,62 @@
+<div class="bg">
+  <div class="parent">
+    <div class="child">
+      <div nz-col>
+        <h1 style="margin-left: 55px">Company Signup</h1>
+      </div>
+
+      <!-- Add *ngIf to prevent errors before form is initialized -->
+      <form *ngIf="validateForm" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+        <!-- Email -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Please enter a valid email">
+            <input nz-input placeholder="E-mail" formControlName="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Password -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Password is required">
+            <input nz-input type="password" placeholder="Password" formControlName="password" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Confirm Password -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Confirm Password is required">
+            <input nz-input type="password" placeholder="Confirm Password" formControlName="checkPassword" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Name -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Name is required">
+            <input nz-input placeholder="Name" formControlName="name" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Address -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Address is required">
+            <input nz-input placeholder="Address" formControlName="address" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Phone -->
+        <nz-form-item>
+          <nz-form-control nzHasFeedback>
+            <input nz-input placeholder="Phone" formControlName="phone" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Submit Button -->
+        <button nz-button class="login-form-button login-form-margin" nzType="primary">
+          Register
+        </button>
+        Or <a routerLink="/login">login now!</a>
+
+      </form>
+    </div>
+  </div>
+</div>

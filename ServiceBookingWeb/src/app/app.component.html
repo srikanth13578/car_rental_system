@@ -1,0 +1,33 @@
+<nz-header class="main-header">
+  <div class="header-left">
+    <h2 class="header-title">"ServeAll – One Platform, All Services"</h2>
+  </div>
+
+  <button class="hamburger" (click)="mobileMenuVisible = !mobileMenuVisible">
+    <i nz-icon nzType="menu" nzTheme="outline"></i>
+  </button>
+
+  <div class="nav-links" [class.mobile-open]="mobileMenuVisible">
+    <ng-container *ngIf="!isClientLoggedIn && !isCompanyLoggedIn">
+      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Register</a>
+      <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
+    </ng-container>
+
+    <ng-container *ngIf="isClientLoggedIn">
+      <a nz-button nzType="link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/client/bookings" routerLinkActive="active">Bookings</a>
+      <a nz-button nzType="link" (click)="logout()">Logout</a>
+    </ng-container>
+
+    <ng-container *ngIf="isCompanyLoggedIn">
+      <a nz-button nzType="link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/company/ad" routerLinkActive="active">Post Ad</a>
+      <a nz-button nzType="link" routerLink="/company/ads" routerLinkActive="active">Ads</a>
+      <a nz-button nzType="link" (click)="logout()">Logout</a>
+    </ng-container>
+  </div>
+</nz-header>
+
+<div class="topnav-content-wrapper">
+  <router-outlet></router-outlet>
+</div>
